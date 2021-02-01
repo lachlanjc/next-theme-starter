@@ -32,6 +32,12 @@ To edit the theme, head to `lib/theme.js`.
 
 Super easy: `yarn dev -p 5000`
 
+### Dependency updates
+
+The included Dependabot configuration file means you’ll automatically get PRs
+every Monday with dependency updates. Delete `.github/dependabot.yml` to
+disable.
+
 ### Meta tags
 
 This template includes a `Meta` component for adding full meta tags.
@@ -87,11 +93,7 @@ I recommend [Fathom Analytics](https://usefathom.com/ref/NXBJA2) or
 for simple, privacy-focused analytics.
 
 <details>
-<summary>
-
-Example `_app` with Fathom (requires `fathom-client`)
-
-</summary>
+<summary>Example `_app` with Fathom (requires `fathom-client`)</summary>
 
 ```js
 import React, { useEffect } from 'react'
@@ -131,11 +133,7 @@ export default App
 
 </details>
 <details>
-<summary>
-
-Example `_app` with Plausible (requires `next-plausible`)
-
-</summary>
+<summary>Example `_app` with Plausible (requires `next-plausible`)</summary>
 
 ```js
 import * as React from 'react'

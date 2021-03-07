@@ -2,7 +2,7 @@
 
 A sample [Next.js] project for getting started with [MDX] & [Theme UI].
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Flachlanjc%2Fnext-theme-starter&repo-name=next-theme-project)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Flachlanjc%2Fnext-theme-starter&repository-name=next-theme-starter)
 
 [next.js]: https://nextjs.org
 [mdx]: https://mdxjs.com

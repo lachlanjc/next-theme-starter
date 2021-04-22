@@ -10,12 +10,10 @@ A sample [Next.js] project for getting started with [MDX] & [Theme UI].
 
 ## Usage
 
-1. Import this repo to your coding environment of choice. Download it, `git clone`, use Create Next App (`yarn create next-app -e https://github.com/lachlanjc/next-theme-starter`),  or use the GitHub import on CodeSandbox (or repl.it, Glitch, etc).
+1. Import this repo to your coding environment of choice. [Download a zip](https://github.com/lachlanjc/next-theme-starter/archive/refs/heads/main.zip), use Create Next App (`yarn create next-app -e https://github.com/lachlanjc/next-theme-starter`),  or use the GitHub import on CodeSandbox/repl.it/Glitch/etc.
 2. `yarn` to install dependencies.
 3. `yarn dev` to start your server.
 4. Start adding your own pages & components in their respective directories.
-
-
 
 ## Configuration
 

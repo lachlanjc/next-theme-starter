@@ -169,4 +169,4 @@ configuration, is totally free for personal projects, and supports all the featu
 of Next.js with the best performance. Refer to [their documentation](https://vercel.com/docs#deploy-an-existing-project)
 for more details. 
 
-Alternatively, can deploy your site on [Netlify](https://netlify.com), which is also free. Refer to [their documentation](https://docs.netlify.com/configure-builds/common-configurations/#next-js) on the necessary configuration.
+Alternatively, you can deploy your site on [Netlify](https://netlify.com), which is also free but requires configuration (refer to [their documentation](https://docs.netlify.com/configure-builds/common-configurations/#next-js)) & doesn’t support every feature of Next.js (fallback pages & image optimization, among others).

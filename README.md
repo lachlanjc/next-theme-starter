@@ -167,9 +167,6 @@ export default App
 I highly recommend using [Vercel](https://vercel.com) for deployment. It requires no
 configuration, is totally free for personal projects, and supports all the features
 of Next.js with the best performance. Refer to [their documentation](https://vercel.com/docs#deploy-an-existing-project)
-for more details.
+for more details. 
 
-If you’re only making a static site (e.g. no [`getServerSideProps`](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering)
-or [API Routes](https://nextjs.org/docs/api-routes/introduction)), you can also
-deploy on [Netlify](https://netlify.com), which is also free. Refer to [their documentation](https://docs.netlify.com/configure-builds/common-configurations/#next-js)
-on the necessary configuration.
+Alternatively, can deploy your site on [Netlify](https://netlify.com), which is also free.

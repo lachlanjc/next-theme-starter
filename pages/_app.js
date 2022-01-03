@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Head from 'next/head'
 
 import Meta from '../components/meta'
 import ColorSwitcher from '../components/color-switcher'

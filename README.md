@@ -10,7 +10,7 @@ A sample [Next.js] project for getting started with [MDX] & [Theme UI].
 
 ## Usage
 
-1. Import this repo to your coding environment of choice. [Download a zip](https://github.com/lachlanjc/next-theme-starter/archive/refs/heads/main.zip), use Create Next App (`yarn create next-app -e https://github.com/lachlanjc/next-theme-starter`),  or use the GitHub import on CodeSandbox/repl.it/Glitch/etc.
+1. Import this repo to your coding environment of choice. [Download a zip](https://github.com/lachlanjc/next-theme-starter/archive/refs/heads/main.zip), use Create Next App (`yarn create next-app -e https://github.com/lachlanjc/next-theme-starter`), or use the GitHub import on CodeSandbox/repl.it/Glitch/etc.
 2. `yarn` to install dependencies.
 3. `yarn dev` to start your server.
 4. Start adding your own pages & components in their respective directories.
@@ -84,7 +84,7 @@ No iconsets are included with this starter, but a few I recommend:
 - [react-ionicons](https://github.com/zamarrowski/react-ionicons)
 - [react-feather](https://github.com/feathericons/react-feather)
 - [@geist-ui/react-icons](https://github.com/geist-org/react-icons)
-- [@hackclub/icons](https://github.com/hackclub/icons)
+- [supercons](https://github.com/lachlanjc/supercons)
 
 ### Adding analytics
 
@@ -93,7 +93,7 @@ I recommend [Fathom Analytics](https://usefathom.com/ref/NXBJA2) or
 for simple, privacy-focused analytics.
 
 <details>
-<summary>Example `_app` with Fathom (requires `fathom-client`)</summary>
+<summary>Example <code>_app.js</code> with Fathom (requires <code>fathom-client</code>)</summary>
 
 ```js
 import React, { useEffect } from 'react'
@@ -133,7 +133,7 @@ export default App
 
 </details>
 <details>
-<summary>Example `_app` with Plausible (requires `next-plausible`)</summary>
+<summary>Example <code>_app.js</code> with Plausible (requires <code>next-plausible</code>)</summary>
 
 ```js
 import * as React from 'react'
@@ -167,6 +167,6 @@ export default App
 I highly recommend using [Vercel](https://vercel.com) for deployment. It requires no
 configuration, is totally free for personal projects, and supports all the features
 of Next.js with the best performance. Refer to [their documentation](https://vercel.com/docs#deploy-an-existing-project)
-for more details. 
+for more details.
 
-Alternatively, you can deploy your site on [Netlify](https://netlify.com), which is also free but requires configuration (refer to [their documentation](https://docs.netlify.com/configure-builds/common-configurations/#next-js)) & doesn’t support every feature of Next.js (fallback pages & image optimization, among others).
+Alternatively, you can deploy your site on [Netlify](https://netlify.com) (also free); [Netlify’s documentation is here](https://docs.netlify.com/configure-builds/common-configurations/next-js/).

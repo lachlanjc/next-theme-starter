@@ -2,15 +2,25 @@ import * as React from 'react'
 
 import Meta from '../components/meta'
 import ColorSwitcher from '../components/color-switcher'
-import theme from '../lib/theme'
 import { ThemeProvider } from 'theme-ui'
+import theme from '../lib/theme'
+import { MDXProvider, useMDXComponents } from '@mdx-js/react'
+import { useThemedStylesWithMdx } from '@theme-ui/mdx'
+
+const mdxComponents = {}
 
 const App = ({ Component, pageProps }) => {
+  const componentsWithStyles = useThemedStylesWithMdx(
+    useMDXComponents(mdxComponents),
+  )
+
   return (
     <ThemeProvider theme={theme}>
       <Meta />
       <ColorSwitcher />
-      <Component {...pageProps} />
+      <MDXProvider components={componentsWithStyles}>
+        <Component {...pageProps} />
+      </MDXProvider>
     </ThemeProvider>
   )
 }

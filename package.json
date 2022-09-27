@@ -11,18 +11,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mdx-js/loader": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@next/mdx": "^12.3.0",
-    "next": "^12.3.0",
-    "theme-ui": "^0.14.7"
+    "@mdx-js/loader": "^2.1.3",
+    "@mdx-js/react": "^2.1.3",
+    "@next/mdx": "^12.3.1",
+    "@theme-ui/mdx": "^0.15.1",
+    "next": "^12.3.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "theme-ui": "^0.15.1"
   },
   "devDependencies": {
-    "eslint": "8.23.1",
-    "eslint-config-next": "12.3.0"
+    "eslint": "8.24.0",
+    "eslint-config-next": "12.3.1"
   }
 }

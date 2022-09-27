@@ -1,6 +1,6 @@
 import { IconButton, useColorMode } from 'theme-ui'
 
-const ColorSwitcher = (props) => {
+function ColorSwitcher(props) {
   const [mode, setMode] = useColorMode()
   return (
     <IconButton
@@ -16,12 +16,18 @@ const ColorSwitcher = (props) => {
         transition: 'box-shadow .125s ease-in-out',
         ':hover,:focus': {
           boxShadow: '0 0 0 3px',
-          outline: 'none'
-        }
+          outline: 'none',
+        },
       }}
       {...props}
     >
-      <svg viewBox="0 0 32 32" width={24} height={24} fill="currentcolor">
+      <svg
+        viewBox="0 0 32 32"
+        width={24}
+        height={24}
+        fill="currentcolor"
+        aria-hidden
+      >
         <circle
           cx={16}
           cy={16}

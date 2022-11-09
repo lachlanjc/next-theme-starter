@@ -8,6 +8,7 @@ specifiers:
   '@next/mdx': ^13.0.2
   '@theme-ui/mdx': ^0.15.3
   '@types/mdx': ^2.0.3
+  '@types/node': ^18.11.9
   '@types/react': ^18.0.25
   eslint: 8.27.0
   eslint-config-next: 13.0.2
@@ -31,6 +32,7 @@ dependencies:
 
 devDependencies:
   '@types/mdx': 2.0.3
+  '@types/node': 18.11.9
   '@types/react': 18.0.25
   eslint: 8.27.0
   eslint-config-next: 13.0.2_rmayb2veg2btbq6mbmnyivgasy
@@ -703,6 +705,10 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
+
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
+    dev: true
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}

@@ -1,6 +1,6 @@
-import { IconButton, useColorMode } from 'theme-ui'
+import { IconButton, IconButtonProps, useColorMode } from 'theme-ui'
 
-function ColorSwitcher(props) {
+function ColorSwitcher(props: IconButtonProps) {
   const [mode, setMode] = useColorMode()
   return (
     <IconButton

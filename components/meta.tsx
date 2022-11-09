@@ -1,8 +1,17 @@
 import Head from 'next/head'
-import theme from '../lib/theme'
+import { useThemeUI } from 'theme-ui'
+import type { PropsWithChildren } from 'react'
 
-const makeTitle = (title, name) =>
+const makeTitle = (title: string, name: string) =>
   title === name ? title : `${title} – ${name}`
+
+interface Props extends PropsWithChildren<any> {
+  title?: string
+  name?: string
+  description?: string
+  image?: string
+  url?: string
+}
 
 function Meta({
   title = 'Theme Starter', // page title
@@ -11,7 +20,9 @@ function Meta({
   image = '', // social card image URL
   url = 'https://next-theme-starter.vercel.app',
   children,
-}) {
+}: Props) {
+  const { theme } = useThemeUI()
+  const primary = theme.colors?.primary as string
   return (
     <Head>
       <meta key="og_locale" property="og:locale" content="en_US" />
@@ -50,22 +61,8 @@ function Meta({
           <meta key="tw_img" name="twitter:image" content={image} />
         </>
       )}
-      <meta
-        key="theme_color"
-        name="theme-color"
-        content={theme.colors.primary}
-      />
-      <meta
-        key="tile_color"
-        name="msapplication-TileColor"
-        content={theme.colors.primary}
-      />
-      <link
-        key="safari_icon"
-        rel="mask-icon"
-        href={`${url}/safari-pinned-tab.png`}
-        color={theme.colors.primary}
-      />
+      <meta key="theme_color" name="theme-color" content={primary} />
+      <meta key="tile_color" name="msapplication-TileColor" content={primary} />
       <link
         key="apple_icon"
         rel="apple-touch-icon"
@@ -86,7 +83,7 @@ function Meta({
         sizes="16x16"
         href={`${url}/favicon-16x16.png`}
       />
-      <link key="manifest" rel="manifest" href={`${url}/site.webmanifest`} />
+      {/* <link key="manifest" rel="manifest" href={`${url}/site.webmanifest`} /> */}
       {children}
     </Head>
   )

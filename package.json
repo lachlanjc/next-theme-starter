@@ -24,7 +24,16 @@
   },
   "devDependencies": {
     "@types/mdx": "^2.0.3",
+    "@types/react": "^18.0.25",
     "eslint": "8.27.0",
-    "eslint-config-next": "13.0.2"
+    "eslint-config-next": "13.0.2",
+    "typescript": "^4.8.4"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "avoid",
+    "printWidth": 80,
+    "semi": false
   }
 }

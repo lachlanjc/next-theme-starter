@@ -1,3 +1,31 @@
+import { get, type Theme } from 'theme-ui'
+
+const util = {
+  motion: '@media (prefers-reduced-motion: no-preference)',
+  reduceMotion: '@media (prefers-reduced-motion: reduce)',
+  reduceTransparency: '@media (prefers-reduced-transparency: reduce)',
+  supportsClipText: '@supports (-webkit-background-clip: text)',
+  supportsBackdrop:
+    '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)',
+}
+
+interface UtilTheme {
+  motion: string
+  reduceMotion: string
+  reduceTransparency: string
+  supportsClipText: string
+  supportsBackdrop: string
+  cx: (c: string) => string
+  gx: (from: string, to: string) => string
+  gxText: (from: string, to: string) => {}
+}
+
+declare module 'theme-ui' {
+  interface Theme {
+    util: UtilTheme
+  }
+}
+
 export const colors = {
   pink: '#e94256',
   red: '#e02200',
@@ -21,11 +49,11 @@ export const colors = {
   // twitter: '#1da1f2',
   // facebook: '#3b5998',
   // instagram: '#e1306c',
-}
+} as const
 
 const fonts = `system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Helvetica, sans-serif`
 
-const theme = {
+const theme: Theme = {
   breakpoints: [32, 48, 64, 96, 128].map(w => `${w}em`),
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fontSizes: [12, 16, 20, 24, 32, 48, 64, 96, 128, 160, 192],
@@ -274,6 +302,37 @@ const theme = {
         boxShadow: 'elevated',
       },
     },
+    translucent: {
+      // variant: 'cards.primary',
+      backgroundColor: 'rgba(255, 255, 255, 0.98)',
+      color: 'text',
+      boxShadow: 'none',
+      [util.supportsBackdrop]: {
+        backgroundColor: 'rgba(255, 255, 255, 0.75)',
+        backdropFilter: 'saturate(180%) blur(20px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(20px)',
+      },
+      [util.reduceTransparency]: {
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+      },
+    },
+    translucentDark: {
+      // variant: 'cards.primary',
+      backgroundColor: 'rgba(0, 0, 0, 0.875)',
+      color: 'white',
+      boxShadow: 'none',
+      [util.supportsBackdrop]: {
+        backgroundColor: 'rgba(0, 0, 0, 0.625)',
+        backdropFilter: 'saturate(180%) blur(16px)',
+        WebkitBackdropFilter: 'saturate(180%) blur(16px)',
+      },
+      [util.reduceTransparency]: {
+        backgroundColor: 'rgba(0, 0, 0, 0.98)',
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+      },
+    },
   },
   forms: {
     input: {
@@ -421,59 +480,22 @@ const theme = {
     },
   },
   util: {
-    motion: '@media (prefers-reduced-motion: no-preference)',
-    reduceMotion: '@media (prefers-reduced-motion: reduce)',
-    reduceTransparency: '@media (prefers-reduced-transparency: reduce)',
-    supportsClipText: '@supports (-webkit-background-clip: text)',
-    supportsBackdrop:
-      '@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none)',
-  },
-}
-
-theme.util.cx = c => theme.colors[c] || c
-theme.util.gx = (from, to) => `radial-gradient(
-  ellipse farthest-corner at top left,
-  ${theme.util.cx(from)},
-  ${theme.util.cx(to)}
-)`
-theme.util.gxText = (from, to) => ({
-  color: theme.util.cx(to),
-  [theme.util.supportsClipText]: {
-    backgroundImage: theme.util.gx(from, to),
-    backgroundRepeat: 'no-repeat',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-  },
-})
-
-theme.cards.translucent = {
-  // variant: 'cards.primary',
-  backgroundColor: 'rgba(255, 255, 255, 0.98)',
-  color: 'text',
-  boxShadow: 'none',
-  [theme.util.supportsBackdrop]: {
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
-    backdropFilter: 'saturate(180%) blur(20px)',
-    WebkitBackdropFilter: 'saturate(180%) blur(20px)',
-  },
-  [theme.util.reduceTransparency]: {
-    backdropFilter: 'none',
-    WebkitBackdropFilter: 'none',
-  },
-}
-theme.cards.translucentDark = {
-  // variant: 'cards.primary',
-  backgroundColor: 'rgba(0, 0, 0, 0.875)',
-  color: 'white',
-  boxShadow: 'none',
-  [theme.util.supportsBackdrop]: {
-    backgroundColor: 'rgba(0, 0, 0, 0.625)',
-    backdropFilter: 'saturate(180%) blur(16px)',
-    WebkitBackdropFilter: 'saturate(180%) blur(16px)',
-  },
-  [theme.util.reduceTransparency]: {
-    backdropFilter: 'none',
-    WebkitBackdropFilter: 'none',
+    ...util,
+    cx: (c: string) => get(theme, `colors.${c}`, c),
+    gx: (from: string, to: string): string => `radial-gradient(
+      ellipse farthest-corner at top left,
+      ${theme.util.cx(from)},
+      ${theme.util.cx(to)}
+    )`,
+    gxText: (from: string, to: string) => ({
+      color: theme.util.cx(to),
+      [theme.util.supportsClipText]: {
+        backgroundImage: theme.util.gx(from, to),
+        backgroundRepeat: 'no-repeat',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+      },
+    }),
   },
 }
 

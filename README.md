@@ -1,6 +1,6 @@
 # Next Theme Starter
 
-A sample [Next.js] project for getting started with [MDX] & [Theme UI].
+A sample [Next.js] (v13) project for getting started with [Theme UI], [MDX] (v2), & TypeScript.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Flachlanjc%2Fnext-theme-starter&repository-name=next-theme-starter)
 
@@ -11,26 +11,26 @@ A sample [Next.js] project for getting started with [MDX] & [Theme UI].
 ## Usage
 
 1. Import this repo to your coding environment of choice. [Download a zip](https://github.com/lachlanjc/next-theme-starter/archive/refs/heads/main.zip), use Create Next App (`yarn create next-app -e https://github.com/lachlanjc/next-theme-starter`), or use the GitHub import on CodeSandbox/repl.it/Glitch/etc.
-2. `yarn` to install dependencies.
-3. `yarn dev` to start your server.
+2. `pnpm` to install dependencies.
+3. `pnpm dev` to start your server.
 4. Start adding your own pages & components in their respective directories.
 
 ## Configuration
 
 ### Theme switcher
 
-There’s an included example theme switcher component at `components/color-switcher.js`,
-which is included on every page through its inclusion in `pages/_app.js`.
+There’s an included example theme switcher component at `components/color-switcher.tsx`,
+which is included on every page through its inclusion in `pages/_app.tsx`.
 Feel free to change/remove it.
 
 ### Custom theme
 
 By default, a theme inspired by the [Hack Club Theme](https://theme.hackclub.com) is included.
-To edit the theme, head to `lib/theme.js`.
+To edit the theme, head to `lib/theme.ts`.
 
 ### Running at another port
 
-Super easy: `yarn dev -p 5000`
+Super easy: `pnpm dev -p 5000`
 
 ### Dependency updates
 
@@ -41,9 +41,9 @@ disable.
 ### Meta tags
 
 This template includes a `Meta` component for adding full meta tags.
-To set the defaults, open `components/meta.js` & change the default props.
+To set the defaults, open `components/meta.tsx` & change the default props.
 
-It’s included in `pages/_app.js` so all pages have the default tags without
+It’s included in `pages/_app.tsx` so all pages have the default tags without
 anything per-page, but due to the `key`s included on each tag, if you render
 the component multiple times (such as once in `_app` & again on an invidual page),
 the last instance of each tag will be used, with duplicates.
@@ -67,10 +67,10 @@ const AboutPage = () => (
   </>
 )
 
-export default Page
+export default AboutPage
 ```
 
-(The default props are included on the component instead of `_app.js` so you
+(The default props are included on the component instead of `_app.tsx` so you
 don’t have to re-include all the props on each page.)
 
 You can also pass children to `Meta` to quickly include custom tags inside the
@@ -93,19 +93,20 @@ I recommend [Fathom Analytics](https://usefathom.com/ref/NXBJA2) or
 for simple, privacy-focused analytics.
 
 <details>
-<summary>Example <code>_app.js</code> with Fathom (requires <code>fathom-client</code>)</summary>
+<summary>Example <code>_app.tsx</code> with Fathom (requires <code>fathom-client</code>)</summary>
 
 ```js
 import React, { useEffect } from 'react'
+import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 
-import Meta from '../components/meta'
-import theme from '../lib/theme'
+import Meta from '#/components/meta'
+import theme from '#/lib/theme'
 import { ThemeProvider } from 'theme-ui'
 import * as Fathom from 'fathom-client'
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -133,18 +134,19 @@ export default App
 
 </details>
 <details>
-<summary>Example <code>_app.js</code> with Plausible (requires <code>next-plausible</code>)</summary>
+<summary>Example <code>_app.tsx</code> with Plausible (requires <code>next-plausible</code>)</summary>
 
 ```js
-import * as React from 'react'
+import React from 'react'
+import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import PlausibleProvider from 'next-plausible'
-import theme from '../lib/theme'
+import theme from '#/lib/theme'
 import { ThemeProvider } from 'theme-ui'
-import Meta from '../components/meta'
+import Meta from '#/components/meta'
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <PlausibleProvider domain="YOURDOMAIN.com">
       <ThemeProvider theme={theme}>
